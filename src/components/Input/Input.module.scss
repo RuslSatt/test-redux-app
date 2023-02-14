@@ -1,0 +1,9 @@
+.input {
+    @apply flex flex-col gap-2;
+    &__label {
+    }
+
+    &__elem {
+        @apply border focus:outline-none focus:border-black h-7 p-2;
+    }
+}

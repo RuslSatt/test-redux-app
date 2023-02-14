@@ -1,6 +1,12 @@
 .header {
-    @apply bg-slate-500 h-12 min-h-full flex items-center p-2 mb-3;
+    @apply bg-slate-500 h-12 flex items-center p-2 mb-3;
     &__title {
-        @apply text-xl text-slate-100;
+        @apply text-xl text-slate-100 flex-grow;
+    }
+    &__edit_budget {
+        @apply text-sm text-slate-100 transition duration-300;
+        &:hover {
+            @apply text-slate-300;
+        }
     }
 }
