@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import styles from './BudgetPage.module.scss';
-import { Select } from 'antd';
+import { InputNumber, Select } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { allCategories, getCategories, selectCategory } from '../redux/reducers/categoryReducer';
+import Button from '../components/Button/Button';
 
 const BudgetPage = () => {
     const dispatch = useDispatch();
@@ -36,6 +37,13 @@ const BudgetPage = () => {
             <div className={styles.budget__category}>
                 <p>Выберите категорию расходов</p>
                 <Select onChange={handleSelect} options={options} style={{ width: 230 }}></Select>
+            </div>
+            <div className={styles.budget__summary}>
+                <label htmlFor="number">Введите сумму</label>
+                <InputNumber defaultValue={0} />
+            </div>
+            <div className="lg:ml-auto">
+                <Button text={'Добавить'} />
             </div>
         </div>
     );

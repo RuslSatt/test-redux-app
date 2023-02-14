@@ -7,10 +7,12 @@ function App() {
     return (
         <div className="h-full flex flex-col">
             <Header />
-            <Routes>
-                <Route path="/" element={<BudgetPage />} />
-                <Route path="/edit-budget" element={<EditBudgetPage />} />
-            </Routes>
+            <main className="p-5">
+                <Routes>
+                    <Route path="/" element={<BudgetPage />} />
+                    <Route path="/edit-budget" element={<EditBudgetPage />} />
+                </Routes>
+            </main>
         </div>
     );
 }

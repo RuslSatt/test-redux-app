@@ -1,5 +1,9 @@
 .budget {
+    @apply flex gap-8 items-center p-5 border border-slate-300 flex-col lg:flex-row;
     &__category {
-        @apply flex flex-col items-center;
+        @apply flex gap-2 items-center flex-col lg:flex-row;
+    }
+    &__summary {
+        @apply flex gap-2 items-center flex-col lg:flex-row;
     }
 }
