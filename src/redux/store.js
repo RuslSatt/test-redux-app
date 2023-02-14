@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import categoryReducer from './reducers/categoryReducer';
+import expenseCardReducer from './reducers/expenseCardReducer';
 import budgetReducer from './reducers/budgetReducer';
 
 export const store = configureStore({
-    reducer: { categoryReducer, budgetReducer },
+    reducer: { expenseCardReducer, budgetReducer },
 });

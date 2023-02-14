@@ -4,7 +4,9 @@ import axios from 'axios';
 const CATEGORY_URL = 'http://localhost:3000/categories';
 
 const initialState = {
+    cards: [],
     categories: [],
+    sum: null,
     selectCategory: null,
 };
 
@@ -17,8 +19,8 @@ export const getCategories = createAsyncThunk('categories/getCategories', async 
     }
 });
 
-export const categoriesSlice = createSlice({
-    name: 'category',
+export const expenseCardSlice = createSlice({
+    name: 'card',
     initialState,
     reducers: {
         selectCategory: (state, action) => {
@@ -35,8 +37,9 @@ export const categoriesSlice = createSlice({
     },
 });
 
-export const { selectCategory } = categoriesSlice.actions;
+export const { selectCategory } = expenseCardSlice.actions;
 
-export const allCategories = state => state.categoryReducer.categories;
+export const allCategories = state => state.expenseCardReducer.categories;
+export const getAllCards = state => state.expenseCardReducer.cards;
 
-export default categoriesSlice.reducer;
+export default expenseCardSlice.reducer;

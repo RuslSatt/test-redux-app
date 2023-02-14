@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './BudgetPage.module.scss';
 import { InputNumber, Select } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-import { allCategories, getCategories, selectCategory } from '../redux/reducers/categoryReducer';
+import { allCategories, getCategories, selectCategory } from '../redux/reducers/expenseCardReducer';
 import Button from '../components/Button/Button';
 
 const BudgetPage = () => {
@@ -29,8 +29,6 @@ const BudgetPage = () => {
     const handleSelect = id => {
         dispatch(selectCategory(id));
     };
-
-    console.log();
 
     return (
         <div className={styles.budget}>
