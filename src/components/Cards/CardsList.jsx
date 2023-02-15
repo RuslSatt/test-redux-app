@@ -26,7 +26,7 @@ const CardsList = () => {
         content = list.map(item => <Card key={item.id} item={item} />);
     }
 
-    return <ul>{content}</ul>;
+    return <ul className="p-5">{content}</ul>;
 };
 
 export default CardsList;

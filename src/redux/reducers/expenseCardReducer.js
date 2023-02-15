@@ -7,8 +7,6 @@ const CATEGORY_EXPENSE_CARDS = 'http://localhost:3000/expenseCards';
 const initialState = {
     cards: [],
     categories: [],
-    sum: null,
-    selectCategory: null,
 };
 
 export const getCategories = createAsyncThunk('categories/getCategories', async () => {
@@ -29,9 +27,9 @@ export const getCards = createAsyncThunk('cards/getCard', async () => {
     }
 });
 
-export const addCard = createAsyncThunk('addCard', async item => {
+export const addCard = createAsyncThunk('cards/addCard', async item => {
     try {
-        const response = await axios.put(CATEGORY_EXPENSE_CARDS, item);
+        const response = await axios.post(CATEGORY_EXPENSE_CARDS, item);
         return response.data;
     } catch (err) {
         console.log(err.message);
@@ -41,14 +39,7 @@ export const addCard = createAsyncThunk('addCard', async item => {
 export const expenseCardSlice = createSlice({
     name: 'card',
     initialState,
-    reducers: {
-        selectCategory: (state, action) => {
-            const id = action.payload;
-            if (!id) return;
-            const findItem = state.categories.find(item => item.id === id);
-            state.selectCategory = findItem;
-        },
-    },
+    reducers: {},
     extraReducers: builder => {
         builder
             .addCase(getCategories.fulfilled, (state, action) => {
@@ -59,6 +50,7 @@ export const expenseCardSlice = createSlice({
             })
             .addCase(addCard.fulfilled, (state, action) => {
                 const item = action.payload;
+                if (!item) return;
                 item.id = nanoid();
                 state.cards = [...state.cards, item];
             });
@@ -69,5 +61,7 @@ export const { selectCategory } = expenseCardSlice.actions;
 
 export const allCategories = state => state.expenseCardReducer.categories;
 export const getAllCards = state => state.expenseCardReducer.cards;
+export const getAllSum = state => state.expenseCardReducer.sum;
+export const getSelectCategory = state => state.expenseCardReducer.selectCategory;
 
 export default expenseCardSlice.reducer;

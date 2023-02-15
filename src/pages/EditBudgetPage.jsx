@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../components/Button/Button';
 import Input from '../components/Input/Input';
 import styles from './EditBudgetPage.module.scss';
-import { addBudget } from '../redux/reducers/budgetReducer';
+import { editBalance } from '../redux/reducers/balanceReducer';
 import { useDispatch } from 'react-redux';
 
 const EditBudgetPage = () => {
@@ -11,8 +11,8 @@ const EditBudgetPage = () => {
 
     const handleEditBudget = () => {
         if (!value) return;
-        const numberValue = Number(value);
-        dispatch(addBudget(numberValue));
+        const balance = { value: Number(value) };
+        dispatch(editBalance(balance));
         setValue('');
     };
 

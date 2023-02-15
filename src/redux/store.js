@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import expenseCardReducer from './reducers/expenseCardReducer';
-import budgetReducer from './reducers/budgetReducer';
+import balanceReducer from './reducers/balanceReducer';
 
 export const store = configureStore({
-    reducer: { expenseCardReducer, budgetReducer },
+    reducer: { expenseCardReducer, balanceReducer },
 });
