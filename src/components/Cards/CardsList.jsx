@@ -1,24 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getAllCards, getCards } from '../../redux/reducers/expenseCardReducer';
+import { useGetCardsQuery } from '../../redux/reducers/expenseCardReducer';
 import Card from './Card';
 
 const CardsList = () => {
-    const dispatch = useDispatch();
-    const list = useSelector(getAllCards);
+    const { data: list, isSuccess } = useGetCardsQuery();
+
+    if (!isSuccess) return;
 
     let content = '';
-
-    const ref = useRef(false);
-
-    useEffect(() => {
-        if (!list?.length) {
-            if (!ref.current) {
-                dispatch(getCards());
-                ref.current = true;
-            }
-        }
-    }, [dispatch]);
 
     if (!list?.length) content = 'Добавьте новый пункт';
 
