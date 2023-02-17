@@ -6,15 +6,17 @@ import { addCard, allCategories, getCategories } from '../redux/reducers/expense
 import Button from '../components/Button/Button';
 import CardsList from '../components/Cards/CardsList';
 import { nanoid } from '@reduxjs/toolkit';
-import { deleteBalance } from '../redux/reducers/balanceReducer';
+import { useEditBalanceMutation } from '../redux/reducers/balanceReducer';
 
-const BudgetPage = () => {
+const BudgetPage = ({ balance }) => {
     const [sum, setSum] = useState(0);
     const [category, setCategory] = useState(null);
 
     const dispatch = useDispatch();
 
     const categories = useSelector(allCategories);
+
+    const [editBalance] = useEditBalanceMutation();
 
     const ref = React.useRef(false);
 
@@ -44,7 +46,9 @@ const BudgetPage = () => {
             value: sum,
         };
         dispatch(addCard(model));
-        dispatch(deleteBalance(sum));
+        const result = balance - sum;
+        const dataBalance = { value: Number(result) };
+        editBalance(dataBalance);
     };
 
     return (

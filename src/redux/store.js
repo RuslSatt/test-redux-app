@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import expenseCardReducer from './reducers/expenseCardReducer';
-import balanceReducer from './reducers/balanceReducer';
+import { balanceApi } from './reducers/queries/balanceApi';
 
 export const store = configureStore({
-    reducer: { expenseCardReducer, balanceReducer },
+    reducer: { expenseCardReducer, [balanceApi.reducerPath]: balanceApi.reducer },
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(balanceApi.middleware),
 });

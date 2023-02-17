@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import Button from '../components/Button/Button';
 import Input from '../components/Input/Input';
 import styles from './EditBudgetPage.module.scss';
-import { editBalance } from '../redux/reducers/balanceReducer';
-import { useDispatch } from 'react-redux';
+import { useEditBalanceMutation } from '../redux/reducers/balanceReducer';
 
 const EditBudgetPage = () => {
-    const dispatch = useDispatch();
     const [value, setValue] = useState('');
 
-    const handleEditBudget = () => {
+    const [editBalance] = useEditBalanceMutation();
+
+    const handleEditBudget = async () => {
         if (!value) return;
         const balance = { value: Number(value) };
-        dispatch(editBalance(balance));
+        await editBalance(balance);
         setValue('');
     };
 

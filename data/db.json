@@ -70,9 +70,59 @@
       "id": "xF5CbvApGDPgKbDkPPNVM",
       "name": "Дети",
       "value": 3000
+    },
+    {
+      "id": "xh9roPaLlM1ENAIOuj8Ff",
+      "name": "Благотворительность",
+      "value": 1000
+    },
+    {
+      "id": "RcOCgAg_rgRzepU9qjypT",
+      "name": "Автомобиль",
+      "value": 5000
+    },
+    {
+      "id": "06YsgFI_k3WmjhG6JGZ7d",
+      "name": "Автомобиль",
+      "value": 1000
+    },
+    {
+      "id": "QFetUdWgUsmiHGTD245ck",
+      "name": "Бизнес",
+      "value": 1000
+    },
+    {
+      "id": "iZxPDm3jgVBt-F3a0Z44q",
+      "name": "Бытовая техника",
+      "value": 5000
+    },
+    {
+      "id": "5PlHlj_jzaKzoAC5xPP2q",
+      "name": "Бытовая техника",
+      "value": 5000
+    },
+    {
+      "id": "3lrsqib8_6VERMwZt5wfc",
+      "name": "Бизнес",
+      "value": 3000
+    },
+    {
+      "id": "mwpB_-MksFm_Z9deREK1c",
+      "name": "Дети",
+      "value": 2100
+    },
+    {
+      "id": "NkVycA4Jx_riFBN0MPRKz",
+      "name": "Бытовая техника",
+      "value": 2100
+    },
+    {
+      "id": "XztrACOSxYDRCNnJD7uZO",
+      "name": "Благотворительность",
+      "value": 1000
     }
   ],
   "balance": {
-    "value": 50000
+    "value": 11800
   }
 }
